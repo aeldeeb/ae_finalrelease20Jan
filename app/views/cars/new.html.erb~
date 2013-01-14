@@ -1,0 +1,4 @@
+<h1>New car Advert</h1>
+
+<%= render 'form' %>
+

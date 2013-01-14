@@ -1,0 +1,31 @@
+<% if current_seller %>
+<p id="notice"><%= notice %></p>
+
+<h2> Edit Profile</h>
+<p>
+  <b>Name:</b>
+  <%= @seller.name %>
+  <br />
+  <b>Email:</b>
+  <%= @seller.email %>
+  <br />
+  <b>City:</b>
+  <%= @seller.city %>
+  <br />
+  <b>Phone:</b>
+  <%= @seller.phone %>
+  <br />
+</p>
+
+<%= link_to t('.back', :default => t("helpers.links.Back")),
+              sellers_path, :class => 'btn'  %>
+<%= link_to t('.edit', :default => t("helpers.links.Edit Your Profile")),
+              edit_seller_path(@seller), :class => 'btn' %>
+
+<%= link_to t('.manage', :default => t("helpers.links.Manage Your Sellings")),
+              seller_cars_path(session[:seller_id]), :class => 'btn' %>
+<% else %>
+<div class="alert alert-error">
+<%= render :text => "You have to login with your facebook account to register as a Seller or Edit Your Profile. Login with your Facebook through the upper link" %>
+</div>
+<% end %>

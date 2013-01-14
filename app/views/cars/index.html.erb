@@ -1,0 +1,34 @@
+<% if current_seller %>
+<h1>Listing cars</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Brand</th>
+    <th>Model</th>
+  </tr>
+
+<% @cars.each do |car| %>
+  <tr>
+    <td><%= car.brand %></td>
+    <td><%= car.model%></td>
+    <td><%= link_to t('.edit', :default => t("helpers.links.Edit Car Info")),
+              edit_seller_car_path(session[:seller_id], car), :class => 'btn' %></td>
+    <td> <%= link_to t('.destroy', :default => t("helpers.links.Delete Advert")),
+              seller_car_path(session[:seller_id], car),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %></td>
+  </tr>
+  
+<% end %>
+</table>
+<%= link_to "Sell a Car", new_seller_car_path(session[:seller_id]), :class => 'btn' %>
+<%= link_to t('.back', :default => t("helpers.links.Back")),
+              seller_path(session[:seller_id]), :class => 'btn'  %>
+<br />
+
+<% else %>
+<div class="alert alert-error">
+<%= render :text => "You have to be a registered Seller. Login with your Facebook through the upper link" %>
+</div>
+<% end %>

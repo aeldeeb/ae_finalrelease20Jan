@@ -1,0 +1,7 @@
+class Seller < ActiveRecord::Base
+validates :name, :phone, :email, :city, :presence => true
+validates :phone, :numericality => true
+
+has_many :authorizations
+has_many :cars
+end

@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<h3> Car Details </h3>
+  <b>Brand:</b>
+  <%= @car.brand %>
+  <br />
+  <b> Model: </b>
+  <%= @car.model %>
+  <br />
+  <b> Color: </b>
+  <%= @car.color %>
+  <br />
+  <b> Manufacturing Year: </b>
+  <%= @car.year %>
+  <br />
+  <b> Mileage: </b>
+  <%= @car.mileage %>
+  <br />
+  <b> Motor CC: </b>
+  <%= @car.cc %>
+  <br />
+  <b> Transmission: </b>
+  <%= @car.transmission %>
+  <br />
+  <b> AC: </b>
+  <%= @car.ac %>
+  <br />
+  <b> Power Steering: </b>
+  <%= @car.power_steering %>
+  <br />
+  <b> Electric Glasses: </b>
+  <%= @car.electric_glasses %>
+  <br />
+  <b> Doors: </b>
+  <%= @car.doors %>
+  <br />
+  <b> Price: </b>
+  <%= @car.notes %>
+  <br />
+  <h3> Seller's Information </h3>
+  <br />
+  <b> Seller Name: </b>
+  <%= @car.seller.name %>
+  <br />
+  <b> Email: </b>
+  <%= @car.seller.email %>
+  <br />
+  <b> Location: </b>
+  <%= @car.seller.city %>
+  <br />
+  <b> Phone: </b>
+  <%= @car.seller.phone %>
+
+</p>
+<%= link_to t('.back', :default => t("helpers.links.Back")),
+              sellers_path, :class => 'btn'  %>
+<div class="fb-comments" data-href="http://localhost:3000/sellers" data-width="770" data-num-posts="2"></div>
+
+

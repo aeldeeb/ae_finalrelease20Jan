@@ -1,0 +1,34 @@
+<%- model_class = Seller -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<form name="compare">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:brand) %></th>
+      <th><%= model_class.human_attribute_name(:model) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @toshow.each do |item| %>
+      <tr>
+        <td><%= check_box_tag 'items[#{item.id}]' %></td>
+        <td><%= link_to item.id, details_path(@seller, :id => item) %></td>
+        <td><%= item.brand %></td>
+        <td><%= item.model %></td>
+        <td><%= item.created_at %></td>
+      </tr>
+    <% end %>
+   
+    </tbody>
+
+</table>
+<div align="center"> <input type="submit" value="Search Cars"></div>
+</form>
+<b> Note: For more details on each car, please click on the car ID. </b>
+

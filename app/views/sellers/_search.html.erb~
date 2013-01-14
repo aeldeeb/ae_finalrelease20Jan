@@ -1,0 +1,44 @@
+<!-- <%= simple_form_for (@car), :html => { :class => 'form-horizontal' } do |f| %> -->
+ 
+<!-- <%= f.label :brand %> -->
+<!-- <%= f.collection_select(:brand, Car.all, :brand, :brand) %> -->
+
+<form name="searchcars">
+<select name="brand" size="1" onChange="updatemodel(this.selectedIndex)" style="width: 150px">
+<option selected>Select Brand...</option>
+<option value="Opel">Opel</option>
+<option value="Cheverolet">Cheverolet</option>
+<option value="Skoda">Skoda</option>
+</select>
+
+<select name="model" size="1" style="width: 150px">
+</select>
+<br />
+<div align="center"> <input type="submit" value="Search Cars"></div>
+</form>
+
+<script type="text/javascript">
+
+var brandlist=document.searchcars.brand
+var modellist=document.searchcars.model
+
+var model=new Array()
+model[0]=""
+model[1]=["Vectra|Vectra", "Corsa|Corsa"]
+model[2]=["Optra|Optra", "Lanos|Lanos"]
+model[3]=["Octavia|Octavia", "Fleshia|Fleshia"]
+
+function updatemodel(selectedbrand){
+modellist.options.length=0
+if (selectedbrand>0){
+for (i=0; i<model[selectedbrand].length; i++)
+modellist.options[modellist.options.length]=new Option(model[selectedbrand][i].split("|")[0], model[selectedbrand][i].split("|")[1])
+}
+}
+
+</script>
+
+
+<!-- <%= link_to 'Search Cars', cars_path(:brand => 'Opel') %> -->
+<!-- <% end %> -->
+

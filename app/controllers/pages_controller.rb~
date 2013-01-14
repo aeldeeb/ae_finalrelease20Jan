@@ -1,0 +1,14 @@
+class PagesController < ApplicationController
+
+def used
+  @cars = Car.all
+  @car = Car.new
+end
+
+def about
+end
+
+def contact
+end
+
+end

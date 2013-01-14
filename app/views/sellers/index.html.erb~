@@ -1,0 +1,22 @@
+<%- model_class = Seller -%>
+      
+  <p class="lead">At our <strong>Global Used Cars portal</strong>, we make it easy and convenient for you to sell your car privately. We list your approved car and advertise it extensively, for FREE, to a wide audience of potential buyers. Once interest is shown in your car we will arrange a test drive in a safe & secure environment! We handle all the paperwork and arrange the transfer of ownership for you!   </p>
+   
+<% if current_seller %>
+ Welcome, <%= current_seller.name %>
+ <%= link_to 'Your Profile', :controller => "sellers", :action => "show", :id => session[:seller_id] %>
+ <%= link_to 'Manage Your Sellings', seller_cars_path(session[:seller_id]) %>
+ <%= link_to 'Logout', :controller => "sessions", :action => "destroy" %>
+<% else %>
+
+<%= link_to t('.new', :default => t("helpers.links.Register as a Seller!")),
+            "auth/facebook",
+            :class => 'btn btn-large btn-block' %>
+<% end %>
+
+
+
+
+
+
+

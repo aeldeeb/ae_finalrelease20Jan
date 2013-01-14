@@ -1,0 +1,50 @@
+<%- model_class = Seller -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Color</th>
+      <th>Manu. Yr</th>
+      <th>Mileage</th>
+      <th>Motor CC</th>
+      <th>Transmission</th>
+      <th>AC</th>
+      <th>Power Steering</th>
+      <th>Electric Glasses</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tofilter.each do |item| %>
+      <tr>
+        <td><%= link_to item.id, details_path(@seller, :id => item) %></td>
+        <td><%= item.brand %></td>
+        <td><%= item.model %></td>
+        <td><%= item.color %></td>
+        <td><%= item.year %></td>
+        <td><%= item.mileage %></td>
+        <td><%= item.cc %></td>
+        <td><%= item.transmission %></td>
+        <td><%= item.ac %></td>
+        <td><%= item.power_steering %></td>
+        <td><%= item.electric_glasses %></td>
+        <td><%= item.doors %></td>
+        <td><%= item.notes %></td>
+      </tr>
+    <% end %>
+   
+    </tbody>
+
+</table>
+
+<b> Please click on the car ID to view seller's information. </b>
+
+<%= link_to t('.back', :default => t("helpers.links.Back")),
+              sellers_path, :class => 'btn'  %>
+

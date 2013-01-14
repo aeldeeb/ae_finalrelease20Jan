@@ -1,0 +1,82 @@
+<% if current_seller %>
+<%= form_for [@seller, @car] do |f| %>
+<%= f.error_messages %>
+  <% if @seller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+
+      <ul>
+      <% @seller.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :cc %>
+    <%= f.text_field :cc %>
+  </div>
+  <div class="field">
+    <%= f.label :transmission %>
+    <%= f.select :transmission, [['','nothing'],['Automatic','automatic'],['Manual','manual']] %>
+  </div>
+  <div class="field">
+    <%= f.label :ac %>
+    <%= f.select :ac, [['','nothing'],['Yes','yes'],['No','no']] %>
+  </div>
+  <div class="field">
+    <%= f.label :power_steering %>
+    <%= f.select :power_steering, [['','nothing'],['Yes','yes'],['No','no']] %>
+  </div>
+  <div class="field">
+    <%= f.label :electric_glasses %>
+    <%= f.select :electric_glasses, [['','nothing'],['Yes','yes'],['No','no']] %>
+  </div>
+  <div class="field">
+    <%= f.label :doors %>
+    <%= f.select :doors, [['','nothing'],['Two','two'],['Four','four']] %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :notes %>
+  </div>
+<div class="field">
+    <%= f.label :car_photo %>
+    <%= f.file_field :photo %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to t('.back', :default => t("helpers.links.Cancel")),
+              seller_cars_path(session[:seller_id]), :class => 'btn'  %>
+
+<% else %>
+<div class="alert alert-error">
+<%= render :text => "You have to be a registered Seller to add or modify a car advert. Login with your Facebook through the upper link" %>
+</div>
+<% end %>
+
