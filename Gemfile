@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem "rspec-rails"
 gem "capybara"
 gem "simplecov"
+
 end
 
 # Gems used only for assets and not required
@@ -18,11 +19,11 @@ group :assets do
   gem 'sass-rails', "3.1.4"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'libv8', '~> 3.11.8'
 end
 
 gem 'jquery-rails'
 gem 'less-rails-bootstrap'
-gem "therubyracer", "~> 0.11.0"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem "execjs"
@@ -30,6 +31,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "paperclip", "~> 2.7"
 gem "dynamic_form"
+gem "therubyracer"
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -212,7 +212,7 @@ DEPENDENCIES
   sass-rails (= 3.1.4)
   simplecov
   sqlite3
-  therubyracer (~> 0.11.0)
+  therubyracer
   turn
   twitter-bootstrap-rails
   uglifier
