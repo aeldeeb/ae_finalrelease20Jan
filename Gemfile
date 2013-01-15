@@ -23,6 +23,8 @@ end
 
 gem 'jquery-rails'
 gem "less-rails"
+gem 'less-rails-bootstrap'
+gem "therubyracer"
 gem "twitter-bootstrap-rails"
 gem "execjs"
 gem "omniauth"

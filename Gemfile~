@@ -22,7 +22,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'less-rails-bootstrap'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem "execjs"
@@ -30,7 +29,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "paperclip", "~> 2.7"
 gem "dynamic_form"
-gem "therubyracer"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
