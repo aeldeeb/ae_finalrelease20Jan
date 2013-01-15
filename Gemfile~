@@ -22,8 +22,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "less-rails"
-gem "twitter-bootstrap-rails"
+gem 'less-rails-bootstrap'
+gem "twitter-bootstrap-rails", :github => 'seyhunak/twitter-bootstrap-rails'
 gem "execjs"
 gem "omniauth"
 gem "omniauth-facebook"

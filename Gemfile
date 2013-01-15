@@ -22,10 +22,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "less-rails"
 gem 'less-rails-bootstrap'
-gem "therubyracer"
 gem "twitter-bootstrap-rails"
+gem "therubyracer"
+gem "less-rails"
 gem "execjs"
 gem "omniauth"
 gem "omniauth-facebook"
