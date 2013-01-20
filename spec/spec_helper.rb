@@ -1,10 +1,19 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start 'rails'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'simplecov'
-SimpleCov.start 'rails'
+
+OmniAuth.config.test_mode = true
+omniauth_hash =
+   {:provider => "facebook",
+    :uid => "383433138417885",
+    :info => {:name => "Ahmed El-Deeb",
+              :email => "eng.ahmed.eldeeb@hotmail.com"},
+    :credentials => {:token => "testtoken1234fdsf"}}
+OmniAuth.config.add_mock(:facebook, omniauth_hash)
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

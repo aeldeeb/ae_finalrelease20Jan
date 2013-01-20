@@ -13,10 +13,6 @@ describe "associations" do
     owned_cars.macro.should == :belongs_to
   end
 
-  it "seller have many authorizations" do
-   authorized_sellers = Seller.reflect_on_association(:authorizations)
-   authorized_sellers.macro.should == :has_many
-  end
 end
 
 describe SellersController do

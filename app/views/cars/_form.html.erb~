@@ -1,17 +1,6 @@
-<% if current_seller %>
 <%= form_for [@seller, @car] do |f| %>
 <%= f.error_messages %>
-  <% if @seller.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
-
-      <ul>
-      <% @seller.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
   <div class="field">
     <%= f.label :brand %>
     <%= f.text_field :brand %>
@@ -43,7 +32,7 @@
   </div>
   <div class="field">
     <%= f.label :ac %>
-    <%= f.select :ac, [['','nothing'],['Yes','yes'],['No','no']] %>
+    <%= f.select :ac, [['','nothing'],['Yes','true'],['No','false']] %>
   </div>
   <div class="field">
     <%= f.label :power_steering %>
@@ -74,9 +63,5 @@
 <%= link_to t('.back', :default => t("helpers.links.Cancel")),
               seller_cars_path(session[:seller_id]), :class => 'btn'  %>
 
-<% else %>
-<div class="alert alert-error">
-<%= render :text => "You have to be a registered Seller to add or modify a car advert. Login with your Facebook through the upper link" %>
-</div>
-<% end %>
+
 

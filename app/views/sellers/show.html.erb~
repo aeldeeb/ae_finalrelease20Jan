@@ -1,3 +1,4 @@
+<% if current_seller %>
 <p id="notice"><%= notice %></p>
 
 <h2> Edit Profile</h>
@@ -23,4 +24,8 @@
 
 <%= link_to t('.manage', :default => t("helpers.links.Manage Your Sellings")),
               seller_cars_path(session[:seller_id]), :class => 'btn' %>
-
+<% else %>
+<div class="alert alert-error">
+<%= render :text => "You have to login with your facebook account to register as a Seller or Edit Your Profile. Login with your Facebook through the upper link" %>
+</div>
+<% end %>

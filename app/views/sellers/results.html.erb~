@@ -17,7 +17,7 @@
   <tbody>
     <% @toshow.each do |item| %>
       <tr>
-        <td><%= check_box_tag 'items[#{item.id}]' %></td>
+        <td><%= check_box_tag 'cars_ids[]', item.id %></td>
         <td><%= link_to item.id, details_path(@seller, :id => item) %></td>
         <td><%= item.brand %></td>
         <td><%= item.model %></td>
@@ -28,7 +28,7 @@
     </tbody>
 
 </table>
-<div align="center"> <input type="submit" value="Search Cars"></div>
+<div align="center"> <input type="submit" value="Compare Cars"></div>
 </form>
 <b> Note: For more details on each car, please click on the car ID. </b>
 

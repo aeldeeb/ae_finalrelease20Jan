@@ -1,5 +1,6 @@
 <% if current_seller %>
 <%= form_for(@seller) do |f| %>
+<%= f.error_messages %>
   <% if @seller.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>

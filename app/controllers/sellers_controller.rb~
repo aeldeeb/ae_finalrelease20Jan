@@ -1,12 +1,11 @@
 class SellersController < ApplicationController
-
-
+skip_before_filter :require_seller, :only => [:index]
   # GET /sellers
   # GET /sellers.json
   def index
     @sellers = Seller.all
     @authorization = Authorization.new
-    @cars = Car.new
+    #@cars = Car.new
    
     @selected_brand = params[:brand]
     @selected_model = params[:model]

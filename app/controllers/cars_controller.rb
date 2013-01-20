@@ -27,7 +27,7 @@ skip_before_filter :require_seller, :only => [:show, :destroy]
   # GET /cars/new.json
   def new
     #@car = Car.new
-    @seller = Seller.find(session[:seller_id])
+    @seller = Seller.find(params[:seller_id]) #before RSpec: session[:seller_id]
     @car = @seller.cars.build
   
     #@car = Car.create(:seller_id => @seller.id)
@@ -58,8 +58,7 @@ skip_before_filter :require_seller, :only => [:show, :destroy]
     @car.save
     if @car.save
      flash[:notice] = "A New Car Advert Has Been Created!"
-     redirect_to seller_url(@car.seller_id)
-     
+     redirect_to seller_url(@car.seller_id) 
      else 
      render :action => 'new'
     end
@@ -96,9 +95,10 @@ skip_before_filter :require_seller, :only => [:show, :destroy]
     @seller = Seller.find(params[:seller_id])
     @car = @seller.cars.find(params[:id])
     @car.destroy
-
+    
      flash[:notice] = "Advert Deleted"
-     redirect_to seller_cars_path(session[:seller_id])
+     #redirect_to seller_cars_path(session[:seller_id])
+     redirect_to sellers_path
 
      #respond_to do |format|
      #format.html { redirect_to cars_url }

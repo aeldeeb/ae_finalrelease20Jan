@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 skip_before_filter :require_seller
+
   def new
     @seller = Seller.new
     @car = Car.new
@@ -14,15 +15,11 @@ skip_before_filter :require_seller
   if @authorization
 
     render 'sellers/index'
-    #render 'sellers/show'
-    #render 'sellers/index'
-    #render :text => "Welcome back #{@authorization.seller.name}! You have already signed up."
-  else
+   else
     seller = Seller.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
     seller.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
     seller.save
      
-    render :text => "Hi #{seller.name}! You've signed up."
   end
   end
 

@@ -1,5 +1,4 @@
 class SellersController < ApplicationController
-
 skip_before_filter :require_seller, :only => [:index]
   # GET /sellers
   # GET /sellers.json

@@ -1,18 +1,18 @@
 class ApplicationController < ActionController::Base
 before_filter :require_seller
 
-#private
+private
 
 def require_seller
-  @seller = Seller.find_by_id(session[:seller_id])
-  flash[:error] = "You must be logged in"
-  redirect_to sellers_url if @seller.nil?
 
+if Rails.env == "development" && Rails.env == "production"
+  @seller = Seller.find_by_id(session[:seller_id])
+  
+  redirect_to sellers_url if @seller.nil?
+  flash[:error] = "You must be logged in"
+end
 end
 
-#def logged_in?
- # !!current_seller
-#end
   protect_from_forgery
 helper_method :current_seller
 
